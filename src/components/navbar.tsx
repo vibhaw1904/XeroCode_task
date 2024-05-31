@@ -1,35 +1,33 @@
 "use client";
-
-import * as React from "react";
+import React, { useContext, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import MenuItem from "@mui/material/MenuItem"; // Correct import
-import { useContext } from "react";
+import { MenuItem } from "@mui/material";
 import { UserContext } from "@/context/ContextProvider";
 import { useRouter } from "next/navigation";
 import { account } from "@/appwrite/config";
 
-const Navbar: React.FC = () => {
-  const context = useContext(UserContext);
+const Navbar = () => {
+  const userContext = useContext(UserContext);
+  const router = useRouter();
 
-  if (!context) {
-    throw new Error("Navbar must be used within a ContextProvider");
+  if (!userContext) {
+    throw new Error("UserContext must be used within a ContextProvider");
   }
 
-  const { user, setUser } = context;
-  const router = useRouter();
+  const { user, setUser } = userContext;
 
   const handleSignOut = async () => {
     try {
       await account.deleteSessions();
-      setUser(undefined);
+      setUser(null);
       router.push("/login");
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

@@ -1,37 +1,28 @@
 "use client";
-
+import { createContext, useState, useEffect, ReactNode } from "react";
 import { account } from "@/appwrite/config";
-import { useEffect, useState, createContext, ReactNode, FC } from "react";
 
-interface User {
-  email: string;
-  id: string;
+interface UserContextType {
+  user: { email: string; id: string } | null;
+  setUser: React.Dispatch<React.SetStateAction<{ email: string; id: string } | null>>;
 }
 
-interface UserContextValue {
-  user: User | undefined;
-  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
-}
+export const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const UserContext = createContext<UserContextValue | undefined>(undefined);
-
-interface ContextProviderProps {
-  children: ReactNode;
-}
-
-const ContextProvider: FC<ContextProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | undefined>(undefined);
+const ContextProvider = ({ children }: { children: ReactNode }) => {
+  const [user, setUser] = useState<{ email: string; id: string } | null>(null);
 
   useEffect(() => {
-    (async function () {
+    const fetchUser = async () => {
       try {
         const res = await account.get();
         setUser({ email: res.email, id: res.$id });
-        console.log(res);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
-    })();
+    };
+
+    fetchUser();
   }, []);
 
   return (
