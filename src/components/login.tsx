@@ -100,13 +100,13 @@ const Login = () => {
                   variant="outlined"
                   color="secondary"
                   endIcon={<img src="/images/google.png" alt="Google Icon" style={{ width: '20px', height: '20px' }} />}
-                  // onClick={() => {
-                  //   account.createOAuth2Session(
-                  //     'google',
-                  //     "http://localhost:3000/dashboard",
-                  //     "http://localhost:3000"
-                  //   )
-                  // }}                  
+                  onClick={() => {
+                    account.createOAuth2Session(
+                      'google',
+                      "http://localhost:3000/dashboard",
+                      "http://localhost:3000"
+                    )
+                  }}                  
                   sx={{
                     borderColor: 'rgba(0, 0, 0, 0.23)',
                     textTransform: 'none',
@@ -125,13 +125,13 @@ const Login = () => {
                   variant="outlined"
                   color="secondary"
                   endIcon={<img src="/images/github.png" alt="GitHub Icon" style={{ width: '20px', height: '20px' }} />}
-                  // onClick={() => {
-                  //   account.createOAuth2Session(
-                  //     "github",
-                  //     "http://localhost:3000/dashboard",
-                  //     "http://localhost:3000"
-                  //   )
-                  // }}    
+                  onClick={() => {
+                    account.createOAuth2Session(
+                      "github",
+                      "http://localhost:3000/dashboard",
+                      "http://localhost:3000"
+                    )
+                  }}    
                   sx={{
                     borderColor: 'rgba(0, 0, 0, 0.23)',
                     textTransform: 'none',
