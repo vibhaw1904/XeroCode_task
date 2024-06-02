@@ -1,17 +1,17 @@
 import conf from "@/conf/config";
 import { Client,Account,ID,Databases } from "appwrite";
 
-type signupUserAccount={
-    FirstName:string,
-    LastName:string,
-    email:string,
-    password:string,
-    confirmPassword:string
-}
-type signinUserAccount={
-    email:string,
-    password:string
-}
+// type signupUserAccount={
+//     FirstName:string,
+//     LastName:string,
+//     email:string,
+//     password:string,
+//     confirmPassword:string
+// }
+// type signinUserAccount={
+//     email:string,
+//     password:string
+// }
 
 const appwriteClient=new Client()
 

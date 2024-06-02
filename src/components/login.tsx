@@ -102,7 +102,7 @@ const Login = () => {
                   endIcon={<img src="/images/google.png" alt="Google Icon" style={{ width: '20px', height: '20px' }} />}
                   onClick={() => {
                     account.createOAuth2Session(
-                      "google",
+                      'google',
                       "http://localhost:3000/dashboard",
                       "http://localhost:3000"
                     )
@@ -149,7 +149,7 @@ const Login = () => {
             Don't have an Account? <Link href="/signup" sx={{ fontFamily: 'Nunito' }}>SIGN UP</Link>
           </Typography>
         </Box>
-       <Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', md: 'block' }, height: '30rem'}} />
+       <Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', md: 'block' },alignSelf: 'center', height: '26rem'}} />
         <Box sx={{ flex: 1, display: { xs: 'none', md: 'block' }, position: 'relative' }}>
           <img src="/images/Vector.png" alt="Vector" style={{ position: 'absolute', bottom: 0, right: 0, width: '100%' }} />
         </Box>

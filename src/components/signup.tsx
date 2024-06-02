@@ -204,7 +204,7 @@ const Signup = () => {
             Already have an Account? <Link href="/login" sx={{ fontFamily: 'Nunito' }}>LOGIN</Link>
           </Typography>
         </Box>
-        <Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', md: 'block' } }} />
+        <Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', md: 'block' },alignSelf: 'center', height: '30rem' }} />
         <Box sx={{ flex: 1, display: { xs: 'none', md: 'block' }, position: 'relative' }}>
           <img src="/images/Vector.png" alt="Vector" style={{ position: 'absolute', bottom: 0, right: 0, width: '100%' }} />
         </Box>
