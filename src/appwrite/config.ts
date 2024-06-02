@@ -1,5 +1,5 @@
 import conf from "@/conf/config";
-import { Client,Account,ID } from "appwrite";
+import { Client,Account,ID,Databases } from "appwrite";
 
 type signupUserAccount={
     FirstName:string,
@@ -19,3 +19,5 @@ appwriteClient.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId)
 
 export const account=new Account(appwriteClient)
 export{appwriteClient,ID}
+export const database = new Databases(appwriteClient);
+

@@ -93,15 +93,20 @@ const Login = () => {
             <Box textAlign="center" sx={{ mt: 2, mb: 2, fontFamily: 'Nunito' }}>
               OR
             </Box>
-            <Grid container spacing={0} justifyContent="center">
+            <Grid container spacing={1} justifyContent="center">
               <Grid item xs={12} sm={6}>
                 <Button
                   fullWidth
                   variant="outlined"
                   color="secondary"
                   endIcon={<img src="/images/google.png" alt="Google Icon" style={{ width: '20px', height: '20px' }} />}
-                  onClick={() => window.location.href = '/api/auth/google'}
-                  sx={{
+                  onClick={() => {
+                    account.createOAuth2Session(
+                      "google",
+                      "http://localhost:3000/dashboard",
+                      "http://localhost:3000"
+                    )
+                  }}                  sx={{
                     borderColor: 'rgba(0, 0, 0, 0.23)',
                     textTransform: 'none',
                     ':hover': {
@@ -118,8 +123,14 @@ const Login = () => {
                   fullWidth
                   variant="outlined"
                   color="secondary"
-                  endIcon={<img src="/images/github.png" alt="GitHub Icon" style={{ width: '15px', height: '15px' }} />}
-                  onClick={() => window.location.href = '/api/auth/github'}
+                  endIcon={<img src="/images/github.png" alt="GitHub Icon" style={{ width: '20px', height: '20px' }} />}
+                  onClick={() => {
+                    account.createOAuth2Session(
+                      "github",
+                      "http://localhost:3000/dashboard",
+                      "http://localhost:3000"
+                    )
+                  }}    
                   sx={{
                     borderColor: 'rgba(0, 0, 0, 0.23)',
                     textTransform: 'none',
