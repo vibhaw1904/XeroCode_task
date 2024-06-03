@@ -4,28 +4,28 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/ContextProvider";
 
 const Dashboard = () => {
-  const userContext = useContext(UserContext);
-  const router = useRouter();
+//   const userContext = useContext(UserContext);
+//   const router = useRouter();
 
-  if (!userContext) {
-    throw new Error("UserContext must be used within a ContextProvider");
-  }
+//   if (!userContext) {
+//     throw new Error("UserContext must be used within a ContextProvider");
+//   }
 
-  const { user } = userContext;
+//   const { user } = userContext;
 
-  useEffect(() => {
-    if (!user) {
-      router.push("/login"); 
-    }
-  }, [user, router]);
+//   useEffect(() => {
+//     if (!user) {
+//       router.push("/login"); 
+//     }
+//   }, [user, router]);
 
-  if (!user) {
-    return <div>Loading...</div>; 
-  }
+//   if (!user) {
+//     return <div>Loading...</div>; 
+//   }
 
   return (
     <div>
-      Hi, {user.email}. This is the dashboard.
+      Hi,user. Login success This is the dashboard.
     </div>
   );
 };
