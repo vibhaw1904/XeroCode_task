@@ -114,8 +114,8 @@ const Login = () => {
                   onClick={() => {
                     account.createOAuth2Session(
                       'google' as any,
-                      "http://localhost:3000/dashboard",
-                      "http://localhost:3000"
+                      "https://xero-code-task.vercel.app/dashboard",
+                      "https://xero-code-task.vercel.app"
                     )
                   }}
                   sx={{
@@ -139,8 +139,8 @@ const Login = () => {
                   onClick={() => {
                     account.createOAuth2Session(
                       "github" as any,
-                      "http://localhost:3000/dashboard",
-                      "http://localhost:3000"
+                      "https://xero-code-task.vercel.app/dashboard",
+                      "https://xero-code-task.vercel.app"
                     )
                   }}
                   sx={{
