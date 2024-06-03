@@ -102,7 +102,7 @@ const Login = () => {
                   endIcon={<img src="/images/google.png" alt="Google Icon" style={{ width: '20px', height: '20px' }} />}
                   onClick={() => {
                     account.createOAuth2Session(
-                      'google',
+                      'google' as any,
                       "http://localhost:3000/dashboard",
                       "http://localhost:3000"
                     )
@@ -127,7 +127,7 @@ const Login = () => {
                   endIcon={<img src="/images/github.png" alt="GitHub Icon" style={{ width: '20px', height: '20px' }} />}
                   onClick={() => {
                     account.createOAuth2Session(
-                      "github",
+                      "github" as any,
                       "http://localhost:3000/dashboard",
                       "http://localhost:3000"
                     )

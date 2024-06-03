@@ -4,8 +4,8 @@ import { Button, TextField, Container, Typography, Box, Grid, Link, Divider } fr
 import { useState } from 'react';
 import { account, ID } from '@/appwrite/config';
 import { useRouter } from 'next/navigation';
-import { OAuthProvider } from 'appwrite';
-
+// import { OAuthProvider } from 'appwrite';
+// type OAuthprovider = "google" | "github";
 const Signup = () => {
   const router = useRouter();
   const [formValues, setFormValues] = useState({
@@ -158,7 +158,7 @@ const Signup = () => {
                 endIcon={<img src="/images/google.png" alt="Google Icon" style={{ width: '20px', height: '20px' }} />}
                 onClick={() => {
                   account.createOAuth2Session(
-                    "google",
+                    "google" as any ,
                     "http://localhost:3000/dashboard",
                     "http://localhost:3000"
                   )
@@ -184,7 +184,7 @@ const Signup = () => {
                 endIcon={<img src="/images/github.png" alt="GitHub Icon" style={{ width: '20px', height: '20px' }} />}
                 onClick={() => {
                    account.createOAuth2Session(
-                    "github",
+                    "github" as any,
                     "http://localhost:3000/dashboard",
                     "http://localhost:3000",
                     
