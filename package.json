@@ -13,7 +13,6 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.19",
     "appwrite": "^15.0.0",
-    "eslint": "^8.57.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",

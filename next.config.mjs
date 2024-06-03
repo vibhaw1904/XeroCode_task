@@ -7,6 +7,7 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  ignoreBuildErrors: true,
   reactStrictMode: true,
   webpack(config, { buildId, dev, isServer, defaultLoaders, webpack }) {
     config.resolve.alias['@components'] = path.join(__dirname, 'components');

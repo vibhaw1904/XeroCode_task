@@ -4,6 +4,7 @@ import { Button, TextField, Container, Typography, Box, Grid, Link, Divider } fr
 import { useState } from 'react';
 import { account, ID } from '@/appwrite/config';
 import { useRouter } from 'next/navigation';
+import { OAuthProvider } from 'appwrite';
 
 const Signup = () => {
   const router = useRouter();
@@ -161,7 +162,8 @@ const Signup = () => {
                     "http://localhost:3000/dashboard",
                     "http://localhost:3000"
                   )
-                }}                sx={{
+                }}                
+                sx={{
                   borderColor: 'rgba(0, 0, 0, 0.23)',
                   textTransform: 'none',
 
@@ -181,10 +183,11 @@ const Signup = () => {
                 color="secondary"
                 endIcon={<img src="/images/github.png" alt="GitHub Icon" style={{ width: '20px', height: '20px' }} />}
                 onClick={() => {
-                  account.createOAuth2Session(
+                   account.createOAuth2Session(
                     "github",
                     "http://localhost:3000/dashboard",
-                    "http://localhost:3000"
+                    "http://localhost:3000",
+                    
                   )
                 }}                   
                  sx={{
