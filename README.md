@@ -18,19 +18,92 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# NextAppwrite Authentication Project
 
-## Learn More
+This project is a simple authentication system built with Next.js and Appwrite. It allows users to sign up, log in, and access a protected dashboard. The project includes email/password authentication as well as OAuth authentication using Google and GitHub.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- User registration with email and password.
+- User login with email and password.
+- OAuth login with Google and GitHub.
+- Protected dashboard accessible only to logged-in users.
+- Context-based user state management.
+- Responsive design using Material-UI.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- Next.js
+- Appwrite
+- Material-UI
+- TypeScript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (v14 or later)
+- npm (v7 or later)
+- Appwrite server
+
+### Installation
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/vibhaw1904/XeroCode_task.git
+    cd XeroCode_task
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3. **Set up environment variables:**
+
+    Create a `.env.local` file in the root directory and add the following:
+
+    ```env
+    NEXT_PUBLIC_APPWRITE_ENDPOINT=<YOUR_APPWRITE_ENDPOINT>
+    NEXT_PUBLIC_APPWRITE_PROJECT=<YOUR_APPWRITE_PROJECT_ID>
+    
+    ```
+
+    Replace `<YOUR_APPWRITE_ENDPOINT>` with your Appwrite server endpoint and `<YOUR_APPWRITE_PROJECT_ID>` with your Appwrite project ID.
+
+4. **Configure OAuth Providers in Appwrite:**
+
+    - **Google:**
+        - Create a new OAuth provider in Appwrite.
+        - Set the redirect URLs to `http://localhost:3000/dashboard` and `http://localhost:3000`.
+
+    - **GitHub:**
+        - Create a new OAuth provider in Appwrite.
+        - Set the redirect URLs to `http://localhost:3000/dashboard` and `http://localhost:3000`.
+
+### Running the Project
+
+1. **Start the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+2. **Open your browser and navigate to:**
+
+    ```
+    http://localhost:3000
+    ```
+
+### Building for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
+
+
