@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import { styleText } from "util";
 import ContextProvider from "@/context/ContextProvider";
 
-// const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,8 +24,9 @@ export default function RootLayout({
       <body >
       <ContextProvider >
       <Navbar/>
-      </ContextProvider> 
-        {children}</body>
+        {children}
+        </ContextProvider> 
+     </body>
     </html>
   );
 }

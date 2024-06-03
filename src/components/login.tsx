@@ -1,12 +1,19 @@
 "use client";
-
 import { Button, TextField, Container, Typography, Box, Divider, Link, Grid } from '@mui/material';
-import { useState } from 'react';
-import { account } from "@/appwrite/config";
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { account } from "@/appwrite/config";
+import { UserContext } from "@/context/ContextProvider";
+
 const Login = () => {
   const router = useRouter();
+  const userContext = useContext(UserContext);
+  
+  if (!userContext) {
+    throw new Error("UserContext must be used within a ContextProvider");
+  }
+  
+  const { setUser } = userContext;
   const [formValues, setFormValues] = useState({ email: '', password: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,12 +23,16 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+    
       await account.createEmailPasswordSession(formValues.email, formValues.password);
+      const user = await account.get();
+      setUser({ email: user.email, id: user.$id });
       router.push('/dashboard');
     } catch (error) {
       console.error('Login error:', error);
     }
-  };
+};
+
 
   return (
     <Container
@@ -106,7 +117,7 @@ const Login = () => {
                       "http://localhost:3000/dashboard",
                       "http://localhost:3000"
                     )
-                  }}                  
+                  }}
                   sx={{
                     borderColor: 'rgba(0, 0, 0, 0.23)',
                     textTransform: 'none',
@@ -131,7 +142,7 @@ const Login = () => {
                       "http://localhost:3000/dashboard",
                       "http://localhost:3000"
                     )
-                  }}    
+                  }}
                   sx={{
                     borderColor: 'rgba(0, 0, 0, 0.23)',
                     textTransform: 'none',
@@ -150,7 +161,7 @@ const Login = () => {
             Don't have an Account? <Link href="/signup" sx={{ fontFamily: 'Nunito' }}>SIGN UP</Link>
           </Typography>
         </Box>
-       <Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', md: 'block' },alignSelf: 'center', height: '26rem'}} />
+        <Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', md: 'block' }, height: '30rem'}} />
         <Box sx={{ flex: 1, display: { xs: 'none', md: 'block' }, position: 'relative' }}>
           <img src="/images/Vector.png" alt="Vector" style={{ position: 'absolute', bottom: 0, right: 0, width: '100%' }} />
         </Box>
